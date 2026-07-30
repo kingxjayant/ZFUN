@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>ten ten — walkie talkie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- REGISTER -->
+  <div id="screen-register" class="screen active">
+    <div class="reg-container">
+      <div class="logo-area">
+        <div class="logo-circle"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+        <h1 class="title">ten ten</h1>
+        <p class="subtitle">walkie talkie for friends</p>
+      </div>
+      <div class="reg-form">
+        <input type="text" id="reg-name" placeholder="Your name..." maxlength="20" autocomplete="off">
+        <button id="reg-btn" class="btn-main">Get Started →</button>
+        <div class="divider"><span>or login</span></div>
+        <input type="text" id="login-pin" placeholder="Enter your PIN..." maxlength="6" inputmode="numeric">
+        <button id="login-btn" class="btn-ghost">Login with PIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="screen-app" class="screen">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <img id="my-avatar" class="avatar-sm" src="" alt="">
+        <div>
+          <div id="my-name" class="name">User</div>
+          <div id="my-pin-display" class="pin-text">PIN: ------</div>
+        </div>
+      </div>
+      <button id="btn-add" class="icon-btn" title="Add Friend">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </header>
+
+    <!-- PIN Banner -->
+    <div class="pin-banner" id="pin-banner">
+      <span class="pin-label">Your PIN</span>
+      <span id="big-pin" class="big-pin">------</span>
+      <button id="copy-pin" class="copy-btn">📋</button>
+    </div>
+
+    <!-- Friends -->
+    <div class="friends-area">
+      <div id="no-friends" class="empty">
+        <div class="empty-icon">📻</div>
+        <h3>No friends yet</h3>
+        <p>Share your PIN with friends to connect!</p>
+      </div>
+      <div id="friends-list" class="friends-list"></div>
+    </div>
+
+    <!-- Speaking Indicator -->
+    <div id="speaking-bar" class="speaking-bar hidden">
+      <div class="speak-avatar-wrap">
+        <img id="speak-avatar" class="avatar-sm" src="" alt="">
+      </div>
+      <div class="speak-info">
+        <span id="speak-name" class="speak-name">Friend</span>
+        <span class="speak-text">is speaking...</span>
+      </div>
+      <div class="speak-waves">
+        <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD FRIEND MODAL -->
+  <div id="modal-add" class="modal hidden">
+    <div class="modal-box">
+      <h3>Add Friend</h3>
+      <p class="modal-sub">Enter friend's 6-digit PIN</p>
+      <input type="text" id="input-pin" placeholder="000000" maxlength="6" inputmode="numeric">
+      <div class="modal-btns">
+        <button id="cancel-add" class="btn-ghost">Cancel</button>
+        <button id="confirm-add" class="btn-main">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast hidden"><span id="toast-text"></span></div>
+
+  <!-- POKE ANIM -->
+  <div id="poke-anim" class="poke-anim hidden"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

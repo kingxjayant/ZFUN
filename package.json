@@ -1,0 +1,21 @@
+{
+  "name": "ten-ten-walkie-talkie",
+  "version": "1.0.0",
+  "description": "Real-time walkie-talkie app — voice, video, pokes, and chat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["walkie-talkie", "voice-chat", "real-time", "socket.io", "webrtc"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.0.0",
+    "socket.io": "^4.8.0",
+    "uuid": "^11.0.0"
+  }
+}
